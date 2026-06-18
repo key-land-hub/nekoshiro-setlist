@@ -37,6 +37,33 @@ h1 {
   margin-bottom:24px;
 }
 
+.account-bar{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+}
+
+#userInfo{
+  color:#d4d4d8;
+}
+
+#loginBtn,
+#logoutBtn{
+  padding:10px 16px;
+  border:none;
+  border-radius:14px;
+  background:#27272a;
+  color:white;
+  cursor:pointer;
+}
+
+#loginBtn:hover,
+#logoutBtn:hover{
+  background:#ec4899;
+}
+
 .search-box{
   position:relative;
 }
@@ -149,12 +176,67 @@ h1 {
   border-color:#ec4899;
 }
 
+.song-row{ 
+   display:flex; 
+   align-items:center; 
+   gap:12px; 
+} 
+
+.song{ 
+   flex:1; 
+} 
+
+.favorite-btn{ 
+   width:50px; 
+   height:50px; 
+   border:none; 
+   border-radius:16px; 
+   background:#09090b; 
+   border:1px solid #27272a; 
+   font-size:24px; 
+   cursor:pointer; 
+} 
+
+.favorite-btn:hover{ 
+   border-color:#a855f7; 
+}
+
 .panel {
   background:#18181b;
   border:1px solid #27272a;
   border-radius:28px;
   padding:24px;
   margin-bottom:24px;
+}
+
+.ranking-box{
+  overflow-y:auto;
+  line-height:2;
+}
+
+.ranking-box::-webkit-scrollbar{
+  width:8px;
+}
+
+.ranking-box::-webkit-scrollbar-track{
+  background:#18181b;
+}
+
+.ranking-box::-webkit-scrollbar-thumb{
+  background:#3f3f46;
+  border-radius:999px;
+}
+
+.ranking-box::-webkit-scrollbar-thumb:hover{
+  background:#ec4899;
+}
+
+.ranking-total{
+  max-height:350px;   /* 10位くらいまで表示 */
+}
+
+.ranking-year{
+  max-height:160px;   /* 5位くらいまで表示 */
 }
 
 .tag {
@@ -171,6 +253,32 @@ h1 {
 .tag:hover {
   border-color:#ec4899;
   color:#f9a8d4;
+}
+
+.tag-box{
+  display:flex;
+  flex-wrap:wrap;
+
+  max-height:160px; /* 3行くらいまで表示 */
+
+  overflow-y:auto;
+}
+
+.tag-box::-webkit-scrollbar{
+  width:8px;
+}
+
+.tag-box::-webkit-scrollbar-track{
+  background:#18181b;
+}
+
+.tag-box::-webkit-scrollbar-thumb{
+  background:#3f3f46;
+  border-radius:999px;
+}
+
+.tag-box::-webkit-scrollbar-thumb:hover{
+  background:#ec4899;
 }
 
 .stats {

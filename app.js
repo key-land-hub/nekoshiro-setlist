@@ -35,7 +35,7 @@ streams.forEach(stream => {
 
 const ranking = Object.entries(counts)
   .sort((a, b) => b[1] - a[1])
-  .slice(0, 20)
+  .slice(0, 100)
 
 document.getElementById('ranking').innerHTML =
   ranking
@@ -57,7 +57,7 @@ streams
 
 const ranking2026 = Object.entries(counts2026)
   .sort((a, b) => b[1] - a[1])
-  .slice(0, 5)
+  .slice(0, 10)
 
 document.getElementById('ranking2026').innerHTML =
   ranking2026
@@ -79,7 +79,7 @@ streams
 
 const ranking2025 = Object.entries(counts2025)
   .sort((a, b) => b[1] - a[1])
-  .slice(0, 5)
+  .slice(0, 10)
 
 document.getElementById('ranking2025').innerHTML =
   ranking2025
@@ -101,7 +101,7 @@ streams
 
 const ranking2024 = Object.entries(counts2024)
   .sort((a, b) => b[1] - a[1])
-  .slice(0, 5)
+  .slice(0, 10)
 
 document.getElementById('ranking2024').innerHTML =
   ranking2024
@@ -154,12 +154,17 @@ function render(keyword='') {
         </div>
 
         <div class="song-list">
-          ${stream.songs.map(song => `
-            <a class="song" href="${song.url}" target="_blank">
-              ▶ ${song.type
-        ? `${song.name} [${song.type}]`
-        : song.name}
-            </a>
+          ${stream.songs.map(song => ` 
+            <div class="song-row"> 
+
+            <a class="song" href="${song.url}" target="_blank"> 
+              ▶ ${song.type 
+                ? `${song.name} [${song.type}]` : song.name} 
+            </a> 
+
+            <button class="favorite-btn">🤍</button>
+ 
+            </div> 
           `).join('')}
         </div>
       `
@@ -212,3 +217,15 @@ document.getElementById('clearSearch')
     search.focus()
 
 })
+
+document.addEventListener('click', e => {
+
+  if (!e.target.classList.contains('favorite-btn')) return;
+
+  if (e.target.textContent === '🤍') {
+    e.target.textContent = '💜';
+  } else {
+    e.target.textContent = '🤍';
+  }
+
+});
