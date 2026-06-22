@@ -10,10 +10,30 @@
 
 <body>
 
-<div class="container">
- <div class="sticky-header">
-  <h1>猫白しゆき　歌枠SetList集</h1>
+<div class="sticky-header">
+
+ <div class="container">
+
+  <h1>
+  猫白しゆき
+  <br class="sp-only">
+  歌枠SetList集
+  </h1>
   <div class="subtitle">2023年12月〜2026年5月の歌枠</div>
+
+  <div class="account-bar">
+  <div id="userInfo">
+    未ログイン
+  </div>
+
+  <button id="loginBtn">
+    Googleでログイン
+  </button>
+
+  <button id="logoutBtn">
+    ログアウト
+  </button>
+  </div>
 
   <div class="search-box">
   <input
@@ -24,8 +44,11 @@
   <button id="clearSearch" class="clear-btn">
     ×
   </button>
+  </div>
  </div>
 </div>
+
+<div class="container">
 
   <div class="grid">
     <div class="cards" id="cards"></div>
@@ -39,26 +62,56 @@
 
       <div class="panel">
       <h2>総歌唱数ランキング</h2>
+      <div class="ranking-box ranking-total">
       <div id="ranking"></div>
+      </div>
       </div>
 
       <div class="panel">
       <h2>2026年歌唱数ランキング</h2>
+      <div class="ranking-box ranking-year">
       <div id="ranking2026"></div>
+      </div>
       </div>
 
       <div class="panel">
       <h2>2025年歌唱数ランキング</h2>
+      <div class="ranking-box ranking-year">
       <div id="ranking2025"></div>
+      </div>
       </div>
 
       <div class="panel">
       <h2>2024年歌唱数ランキング</h2>
+      <div class="ranking-box ranking-year">
       <div id="ranking2024"></div>
+      </div>
+      </div>
+
+      <div class="panel">
+      <h2>💜お気に入り曲</h2>
+
+      <div class="ranking-box favorite-box">
+        <div id="favoriteSongs">
+          ログインすると表示されます
+        </div>
+      </div>
+      </div> 
+
+      <div class="panel"> 
+      <h2>💜お気に入りランキング</h2> 
+
+      <div class="ranking-box"> 
+       <div id="favoriteRanking"> 
+        集計中 
+       </div> 
+      </div> 
       </div>
 
       <div class="panel">
         <h2>タグ</h2>
+        <div class="tag-box">
+
         <div class="tag clickable-tag">横枠</div>
         <div class="tag clickable-tag">縦枠</div>
         <div class="tag clickable-tag">分割</div>
@@ -76,13 +129,15 @@
         <div class="tag clickable-tag">病み</div>
         <div class="tag clickable-tag">バラード</div>
         <div class="tag clickable-tag">アニソン</div>
-        
-      </div>
+
+     </div> 
     </div>
   </div>
+ </div>
 </div>
 
 <script src="streams.js"></script>
+<script type="module" src="firebase.js"></script>
 <script src="app.js"></script>
 
 </body>
