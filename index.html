@@ -10,10 +10,38 @@
 
 <body>
 
-<div class="container">
- <div class="sticky-header">
-  <h1>猫白しゆき　歌枠SetList集</h1>
+ <div class="container">
+
+  <h1>
+  <span class="title-pc">
+    猫白しゆき　歌枠SetList集
+  </span>
+
+  <span class="title-sp">
+    猫白しゆき<br>
+    歌枠SetList集
+  </span>
+  </h1>
   <div class="subtitle">2023年12月〜2026年5月の歌枠</div>
+
+  <div class="account-bar">
+  <div id="userInfo">
+    未ログイン
+  </div>
+
+  <button id="loginBtn">
+    Googleでログイン
+  </button>
+
+  <button id="logoutBtn">
+    ログアウト
+  </button>
+  </div>
+
+ </div>
+
+ <div class="sticky-header">
+  <div class="container">
 
   <div class="search-box">
   <input
@@ -24,13 +52,27 @@
   <button id="clearSearch" class="clear-btn">
     ×
   </button>
+  </div>
+
+  <div class="view-buttons"> 
+    <button id="showBoth">全表示</button> 
+    <button id="showSongs">🎵歌枠</button> 
+    <button id="showStats">📊統計</button> 
+    <button id="showFavorites">💜お気に入り</button> 
+    <button id="showTags">🏷タグ</button> 
+  </div>
+
  </div>
 </div>
+
+<div class="container">
 
   <div class="grid">
     <div class="cards" id="cards"></div>
 
-    <div>
+    <div id="sidePanel">
+
+     <div id="statsPanel">
    
       <div class="panel">
       <h2>統計</h2>
@@ -39,26 +81,55 @@
 
       <div class="panel">
       <h2>総歌唱数ランキング</h2>
+      <div class="ranking-box ranking-total">
       <div id="ranking"></div>
+      </div>
       </div>
 
       <div class="panel">
       <h2>2026年歌唱数ランキング</h2>
+      <div class="ranking-box ranking-year">
       <div id="ranking2026"></div>
+      </div>
       </div>
 
       <div class="panel">
       <h2>2025年歌唱数ランキング</h2>
+      <div class="ranking-box ranking-year">
       <div id="ranking2025"></div>
+      </div>
       </div>
 
       <div class="panel">
       <h2>2024年歌唱数ランキング</h2>
+      <div class="ranking-box ranking-year">
       <div id="ranking2024"></div>
       </div>
+      </div>
+     </div>
+
+
+   <div id="favoritePanel"> 
+
+      <div class="panel"> 
+      <h2>💜お気に入り曲</h2>
+
+      <div class="ranking-box favorite-box">
+        <div id="favoriteSongs">
+          ログインすると表示されます
+        </div>
+      </div>
+      </div> 
+
+
+   </div>
+
+   <div id="tagPanel"> 
 
       <div class="panel">
         <h2>タグ</h2>
+        <div class="tag-box">
+
         <div class="tag clickable-tag">横枠</div>
         <div class="tag clickable-tag">縦枠</div>
         <div class="tag clickable-tag">分割</div>
@@ -76,13 +147,18 @@
         <div class="tag clickable-tag">病み</div>
         <div class="tag clickable-tag">バラード</div>
         <div class="tag clickable-tag">アニソン</div>
-        
+
+        </div> 
       </div>
-    </div>
+   </div>
+
   </div>
+ </div>
+</div>
 </div>
 
 <script src="streams.js"></script>
+<script type="module" src="firebase.js"></script>
 <script src="app.js"></script>
 
 </body>

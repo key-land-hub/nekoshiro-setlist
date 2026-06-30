@@ -1,6 +1,61 @@
 /* app.js */
 
-const cards = document.getElementById('cards')
+const cards = document.getElementById('cards'); 
+const sidePanel = document.getElementById('sidePanel'); 
+const statsPanel = document.getElementById('statsPanel');
+const favoritePanel = document.getElementById('favoritePanel');
+const tagPanel = document.getElementById('tagPanel');
+
+document.getElementById('showBoth').onclick = () => {
+  cards.style.display = '';
+  sidePanel.style.display = '';
+
+  statsPanel.style.display = '';
+  favoritePanel.style.display = '';
+  tagPanel.style.display = '';
+
+  localStorage.setItem('viewMode', 'both');
+};
+
+document.getElementById('showSongs').onclick = () => {
+  cards.style.display = '';
+  sidePanel.style.display = 'none';
+
+  localStorage.setItem('viewMode', 'songs');
+};
+
+document.getElementById('showStats').onclick = () => {
+  cards.style.display = 'none';
+  sidePanel.style.display = '';
+
+  statsPanel.style.display = '';
+  favoritePanel.style.display = 'none';
+  tagPanel.style.display = 'none';
+
+  localStorage.setItem('viewMode', 'stats');
+};
+
+document.getElementById('showFavorites').onclick = () => {
+  cards.style.display = 'none';
+  sidePanel.style.display = '';
+
+  statsPanel.style.display = 'none';
+  favoritePanel.style.display = '';
+  tagPanel.style.display = 'none';
+
+  localStorage.setItem('viewMode', 'favorites');
+};
+
+document.getElementById('showTags').onclick = () => {
+  cards.style.display = 'none';
+  sidePanel.style.display = '';
+
+  statsPanel.style.display = 'none';
+  favoritePanel.style.display = 'none';
+  tagPanel.style.display = '';
+
+  localStorage.setItem('viewMode', 'tags');
+};
 
 const search = document.getElementById('search')
 
@@ -35,7 +90,7 @@ streams.forEach(stream => {
 
 const ranking = Object.entries(counts)
   .sort((a, b) => b[1] - a[1])
-  .slice(0, 20)
+  .slice(0, 100)
 
 document.getElementById('ranking').innerHTML =
   ranking
@@ -57,7 +112,7 @@ streams
 
 const ranking2026 = Object.entries(counts2026)
   .sort((a, b) => b[1] - a[1])
-  .slice(0, 5)
+  .slice(0, 10)
 
 document.getElementById('ranking2026').innerHTML =
   ranking2026
@@ -79,7 +134,7 @@ streams
 
 const ranking2025 = Object.entries(counts2025)
   .sort((a, b) => b[1] - a[1])
-  .slice(0, 5)
+  .slice(0, 10)
 
 document.getElementById('ranking2025').innerHTML =
   ranking2025
@@ -101,7 +156,7 @@ streams
 
 const ranking2024 = Object.entries(counts2024)
   .sort((a, b) => b[1] - a[1])
-  .slice(0, 5)
+  .slice(0, 10)
 
 document.getElementById('ranking2024').innerHTML =
   ranking2024
@@ -154,18 +209,30 @@ function render(keyword='') {
         </div>
 
         <div class="song-list">
-          ${stream.songs.map(song => `
-            <a class="song" href="${song.url}" target="_blank">
-              ▶ ${song.type
-        ? `${song.name} [${song.type}]`
-        : song.name}
-            </a>
+          ${stream.songs.map(song => ` 
+            <div
+              class="song-row"
+              data-date="${stream.date}"
+              data-title="${stream.title}"
+              data-url="${song.url}"
+            >
+
+            <a class="song" href="${song.url}" target="_blank"> 
+              ▶ ${song.type 
+                ? `${song.name} [${song.type}]` 
+                : song.name} 
+            </a> 
+
+            <button class="favorite-btn">🤍</button>
+ 
+            </div> 
           `).join('')}
         </div>
       `
 
       cards.appendChild(el)
     })
+
 }
 
 function normalizeDate(dateStr){
@@ -180,6 +247,7 @@ streams.sort((a,b)=>{
 
 search.addEventListener('input', e => {
   render(e.target.value)
+
 })
 
 document.addEventListener('click', e => {
@@ -201,6 +269,41 @@ document.addEventListener('click', e => {
   search.value = keywords.join(' ')
   render(search.value)
 })
+
+// タグ検索で再描画された時もハートを復元
+const originalRender = render
+
+render = function(keyword = '') {
+  originalRender(keyword)
+
+  if (window.loadFavorites) {
+    window.loadFavorites()
+  }
+}
+
+const savedMode = localStorage.getItem('viewMode');
+
+switch(savedMode){
+
+  case 'songs':
+    document.getElementById('showSongs').click();
+    break;
+
+  case 'stats':
+    document.getElementById('showStats').click();
+    break;
+
+  case 'favorites':
+    document.getElementById('showFavorites').click();
+    break;
+
+  case 'tags':
+    document.getElementById('showTags').click();
+    break;
+
+  default:
+    document.getElementById('showBoth').click();
+}
 
 render()
 
