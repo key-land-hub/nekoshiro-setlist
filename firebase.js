@@ -341,10 +341,10 @@ async function addSongClick(song) {
 
   }
 
-async function updateSongFavorite(song, value){
+async function updateSongFavorite(song, value) {
 
   const docId =
-    song.date.replaceAll('/','') + "_" +
+    song.date.replaceAll("/", "") + "_" +
     song.title + "_" +
     song.name;
 
@@ -352,32 +352,32 @@ async function updateSongFavorite(song, value){
 
   const snap = await getDoc(ref);
 
-  if(!snap.exists()){
+  if (!snap.exists()) {
 
-    await setDoc(ref,{
+    await setDoc(ref, {
 
-      id:docId,
+      id: docId,
 
-      name:song.name,
-      date:song.date,
-      title:song.title,
-      url:song.url,
+      name: song.name,
+      date: song.date,
+      title: song.title,
+      url: song.url,
 
-      clicks:0,
-      favorites:value,
+      clicks: 0,
+      favorites: Math.max(value, 0),
 
-      createdAt:serverTimestamp(),
-      updatedAt:serverTimestamp()
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp()
 
     });
 
-  }else{
+  } else {
 
-    await updateDoc(ref,{
+    await updateDoc(ref, {
 
-      favorites:increment(value),
+      favorites: increment(value),
 
-      updatedAt:serverTimestamp()
+      updatedAt: serverTimestamp()
 
     });
 
