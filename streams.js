@@ -1091,6 +1091,19 @@ const streams = [
 {"name": "いかないで", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=33m0s"},
 {"name": "雨とペトラ", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=38m59s"},
 {"name": "とても素敵な六月でした", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=45m34s"},
-{"name": "サマータイムレコード", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=53m1s"}]}
+{"name": "サマータイムレコード", "url": "https://www.youtube.com/watch?v=jsIntrGfcLE&t=53m1s"}]}, 
+
+{"date": "2026/08/18", 
+"title": "【歌枠｜KARAOKE】ボカロ多めに夏曲歌う🎐中低音女子のお歌枠🎙", 
+"theme": ["横枠"], 
+"url": "https://www.youtube.com/watch?v=A6suwh5zwYQ=0s", 
+"songs": [
+{"name": "ウミユリ海底譚", "url": "https://www.youtube.com/watch?v=A6suwh5zwYQ=6m42s"},
+{"name": "打上花火", "url": "https://www.youtube.com/watch?v=A6suwh5zwYQ=12m53s"},
+{"name": "Fire◎Flower", "url": "https://www.youtube.com/watch?v=A6suwh5zwYQ=26m53s"},
+{"name": "君の知らない物語", "url": "https://www.youtube.com/watch?v=A6suwh5zwYQ=35m50s"},
+{"name": "少女レイ", "url": "https://www.youtube.com/watch?v=A6suwh5zwYQ=43m22s"},
+{"name": "地球最後の告白を", "url": "https://www.youtube.com/watch?v=A6suwh5zwYQ=50m21s"},
+{"name": "サマータイムレコード", "url": "https://www.youtube.com/watch?v=A6suwh5zwYQ=56m27s"}]}, 
 
 ];
