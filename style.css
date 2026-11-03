@@ -281,6 +281,10 @@ h1 {
   max-height:160px;   /* 5位くらいまで表示 */
 }
 
+.clickRanking{
+  max-height:160px;   /* 5位くらいまで表示 */
+}
+
 /* 再生数ランキング */
 .ranking-item{
   display:flex;
